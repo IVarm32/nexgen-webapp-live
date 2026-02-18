@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NexGen Gospel Radio | Elevate Your Spirit</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+
+    <!-- Fastcast4u Widget Dependencies -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link href="https://usa20.fastcast4u.com:5030/media/static/css/widget-status.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://usa20.fastcast4u.com:5030/media/static/css/current_track_widget/status_widget.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://usa20.fastcast4u.com:5030/media/static/css/request_track_widget/request_widget.css" />
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3885d6",
+                        secondary: "#d8db14",
+                        accent: "#FBBF24",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a"
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .dark .glass {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(56, 133, 214, 0.15), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(216, 219, 20, 0.1), transparent 40%);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+
+        /* Widget Overrides */
+        [is="player"] {
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        /* Fix for Player Background */
+        .player-card {
+            background-color: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .player-card {
+            background-color: #1e293b;
+        }
+
+        /* Song Request Modal Fix */
+        .sc-track-request-widget input[type="text"],
+        .sc-track-request-widget textarea {
+            width: 100% !important;
+            min-width: 100% !important;
+            display: block !important;
+            padding: 10px 14px !important;
+            margin: 8px 0 !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 12px !important;
+            background: #ffffff !important;
+            color: #334155 !important;
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+        }
+
+        .sc-track-request-widget div[style*="position: fixed"] {
+            width: 90% !important;
+            max-width: 420px !important;
+            min-width: 300px !important;
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            padding: 24px !important;
+            border-radius: 24px !important;
+            background: #ffffff !important;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4) !important;
+            z-index: 9999 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            text-align: left !important;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen hero-gradient">
+
+    <div class="max-w-md mx-auto px-6 py-8 space-y-8 relative pb-40">
+
+        <!-- Header -->
+        <header class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 glass rounded-xl flex items-center justify-center shadow-md p-1 overflow-hidden relative">
+                    <!-- Logo Update with new URL -->
+                    <img id="header-logo"
+                        src="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
+                        alt="Logo" class="w-full h-full object-contain rounded-lg z-10 relative"
+                        onerror="this.src='brand_logo.jpg'; this.onerror=function(){this.src='https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.51_PM_1.jpeg'};">
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-xl tracking-tight leading-tight">NexGen</h1>
+                    <p class="text-[10px] text-primary font-bold uppercase tracking-[0.2em]">Gospel JA</p>
+                </div>
+            </div>
+            <button
+                class="w-10 h-10 glass rounded-xl flex items-center justify-center shadow transition-transform active:scale-90"
+                onclick="document.documentElement.classList.toggle('dark')">
+                <span class="material-icons-round text-slate-600 dark:text-slate-300">dark_mode</span>
+            </button>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="space-y-6">
+
+            <!-- Brand Image (Angels & Cross) -->
+            <section class="animate-fade-in">
+                <div
+                    class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 dark:border-white/10 aspect-square group bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+                    <!-- Restoring original angel image as hero visual -->
+                    <img id="main-brand-img" src="brand_logo.jpg" alt="Nexgen Gospel - God Promises Never Fails"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-10"
+                        onerror="this.src='https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.52_PM_PDhKuat.jpeg';">
+                    <div
+                        class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-center z-20">
+                        <p class="font-bold text-sm tracking-widest uppercase mb-1">Nexgen Gospel Radio</p>
+                        <p class="text-[10px] font-medium opacity-90 tracking-wide">God Promises Never Fails</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Player Widget (Below Image) -->
+            <section class="animate-fade-in group">
+                <div
+                    class="player-card p-4 relative overflow-hidden transition-all duration-300 group-hover:shadow-2xl">
+                    <div style="width: 100% !important; min-height: 420px;" id="sc-player">
+                        <div is="player" lang="en" api-url="https://usa20.fastcast4u.com:5030/api/v2" server-id="1"
+                            station-name="Nexgen Gospel JA" station-url="https://www.nexgengospelradio.com/"
+                            imagecontainer="right" imagecontainer-bg="#ffffff" imagecontainer-bg-opacity="1"
+                            controlscontainer="left" controlscontainer-bg="transparent" controlscontainer-bg-opacity="0"
+                            historycontainer="bottom" historycontainer-bg="transparent" historycontainer-bg-opacity="0"
+                            :show-history="true" history-limit="5" sharecontainer="bottom" sharecontainer-bg="#1488c2"
+                            sharecontainer-bg-opacity="1" :show-share="true"
+                            share-url="https://www.nexgengospelradio.com/" :share="['facebook','telegram','twitter']"
+                            :show-dj="true"
+                            default-dj-img="https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.51_PM_1.jpeg"
+                            :show-image="true"
+                            default-cover-image="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
+                            play-button-color="#ffffff" play-button-bg="#3885d6" visualizer-outline-color="#3885d6"
+                            visualizer-bar-width="2" :channels-displayed="[1]" channels-switch-bg="#3885d6"
+                            channels-switch-color="#ffffff" channels-switch-bg-active="#fafafa"
+                            channels-switch-color-active="#3885d6" :show-vote="true" vote-buttons-color="#3885d6"
+                            vote-buttons-opacity="1" vote-results-font-color="#3885d6" vote-results-font-size="16"
+                            :progress-show="true" progress-bar-color="#3885d6" progress-bar-bg-color="#e2e8f0"
+                            progress-bar-bg-opacity="1" progress-bar-bg-height="25" progress-bar-opacity="1"
+                            progress-font-color="#ffffff" progress-font-size="12" progress-bar-bg-radius="10"
+                            progress-bar-bg-border="#3885d6" player-width="100%">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direct Stream Link -->
+                <div class="mt-4 px-4 text-center">
+                    <a href="https://usa20.fastcast4u.com:5040/;?type=http&nocache=1771376406" target="_blank"
+                        class="text-[10px] font-bold text-slate-400 hover:text-primary uppercase tracking-[0.2em] inline-flex items-center gap-2 transition-all hover:gap-3">
+                        <span class="material-icons-round text-sm">play_circle</span>
+                        Direct Mobile Stream
+                    </a>
+                </div>
+            </section>
+
+            <!-- Song Request Section -->
+            <section id="song-requests" class="animate-fade-in space-y-4">
+                <div class="flex items-center justify-between px-2">
+                    <h2 class="font-bold text-xl">Song Request</h2>
+                </div>
+
+                <div
+                    class="glass rounded-[2rem] p-6 shadow-xl border border-white/50 overflow-hidden bg-white/80 dark:bg-slate-900/80">
+                    <div style="width: 100%;">
+                        <div class="sc-track-request-widget">
+                            <div is="track-request-widget" lang="en" api-base="https://usa20.fastcast4u.com:5030/api/v2"
+                                server-id="1" ip-timeout="1800000" track-timeout="3600000" bgcolor="#ffffff"
+                                bgopacity="1" tracks_num="20" track_width="100%"
+                                track_image_default="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
+                                meta_font_size="16" meta_font_style="italic" meta_font_color="#1a1a1a" meta_opacity="1"
+                                button_color="#3885d6" button_color_active="#d8db14" button_font_color="#ffffff"
+                                button_font_size="16" ordering="1" allow_person_and_message="true"
+                                modal_background_color="#fcfcfc" modal_font_color="#292828"
+                                modal_background_opacity="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prayer Form -->
+            <section id="prayer-form"
+                class="glass p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/50 bg-white/60 dark:bg-slate-900/40">
+                <div
+                    class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full translate-x-10 -translate-y-10">
+                </div>
+                <div class="text-center space-y-2 relative mb-6">
+                    <div
+                        class="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl mb-2 rotate-12 transition-transform hover:rotate-0">
+                        <span class="material-icons-round text-primary text-3xl">volunteer_activism</span>
+                    </div>
+                    <h3 class="font-bold text-2xl">Prayer Wall</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Join our community in prayer and praise.</p>
+                </div>
+
+                <form class="space-y-4 relative">
+                    <input
+                        class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="Your Name" type="text" />
+                    <div class="grid grid-cols-2 gap-4">
+                        <select
+                            class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm appearance-none cursor-pointer">
+                            <option>Prayer</option>
+                            <option>Praise</option>
+                            <option>Healing</option>
+                        </select>
+                        <div
+                            class="glass bg-white/50 dark:bg-slate-800/50 rounded-2xl px-4 py-4 flex items-center gap-2">
+                            <input type="checkbox" id="private" class="rounded text-primary focus:ring-primary"><label
+                                for="private"
+                                class="text-[10px] uppercase font-bold text-slate-400 cursor-pointer">Private</label>
+                        </div>
+                    </div>
+                    <textarea
+                        class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm min-h-[100px]"
+                        placeholder="How can we stand with you today?"></textarea>
+                    <button
+                        class="w-full bg-primary text-white py-5 rounded-2xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all"
+                        type="submit">Submit Request</button>
+                </form>
+            </section>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav
+            class="fixed bottom-0 left-0 right-0 glass backdrop-blur-2xl border-t border-white/20 px-10 py-5 pb-10 flex justify-between items-center z-50">
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                class="text-primary flex flex-col items-center gap-1">
+                <span class="material-icons-round">radio</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest">Listen</span>
+            </button>
+            <button onclick="document.getElementById('song-requests').scrollIntoView({behavior:'smooth'})"
+                class="text-slate-400 hover:text-primary transition-colors flex flex-col items-center gap-1">
+                <span class="material-icons-round">queue_music</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest">Song Request</span>
+            </button>
+            <button onclick="document.getElementById('prayer-form').scrollIntoView({behavior:'smooth'})"
+                class="text-slate-400 hover:text-primary transition-colors flex flex-col items-center gap-1">
+                <span class="material-icons-round">volunteer_activism</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest">Pray</span>
+            </button>
+            <button class="text-slate-400 hover:text-primary transition-colors flex flex-col items-center gap-1">
+                <span class="material-icons-round">account_circle</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest">Me</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript"
+        src="https://usa20.fastcast4u.com:5030/media/static/js/sc_player/sc_player.js"></script>
+    <script type="text/javascript"
+        src="https://usa20.fastcast4u.com:5030/media/static/js/current_track_widget/status_widget.js"></script>
+    <script type="text/javascript"
+        src="https://usa20.fastcast4u.com:5030/media/static/js/request_track_widget/request_widget.js"></script>
+</body>
+
+</html>

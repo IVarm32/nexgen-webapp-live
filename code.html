@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NexGen Gospel Radio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script>tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#4892c6", accent: "#FBBF24", "background-light": "#f6f7f8", "background-dark": "#141a1e"}, fontFamily: {display: "Plus Jakarta Sans"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}}}};</script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: scroll 15s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen">
+<div class="max-w-md mx-auto px-5 py-6 space-y-8 relative pb-32">
+<header class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons-round text-white text-3xl">auto_awesome</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-tight">NexGen</h1>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Gospel Radio</p>
+</div>
+</div>
+<div class="flex items-center bg-sky-50 dark:bg-slate-800/50 px-3 py-2 rounded-2xl border border-sky-100 dark:border-slate-700">
+<span class="material-icons-round text-primary text-lg mr-2">wb_sunny</span>
+<div class="text-right">
+<p class="text-xs font-bold leading-none">28°C</p>
+<p class="text-[10px] text-slate-400">Montego Bay</p>
+</div>
+</div>
+</header>
+<nav class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+<a class="px-5 py-2.5 bg-primary text-white rounded-full font-semibold text-sm shadow-md shadow-primary/30" href="#">Home</a>
+<a class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full font-medium text-sm" href="#">Schedule</a>
+<a class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full font-medium text-sm" href="#">Testimonies</a>
+</nav>
+<section class="relative group">
+<div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 transform scale-90"></div>
+<div class="relative overflow-hidden rounded-[2.5rem] aspect-[4/5] shadow-2xl">
+<img alt="Joyful worshipper background" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCua8lSOsNXgND2N_7OVdFoYWFfgG1PEozYQh3p-r2bdYGi33l--u_mCUVnqXoiNSRrKsArH-oKSaduuBhEmUuyECnOhdqZezsFMd8J6fBR0xijRXw8ZjcdJSS5S_nmVFt5yGcAK4tFcyfKqX_EmEj9x_PcGnPoQX5hX94QnvIPlMJf2mkJzue2_Cc3YTgMx6EXagC9Ce54Fv2QAoghmnOmoQbSTINIfkroujGK49Rq1YOaKhITdRtdVM-8oEzhbc3Btpio8Rf014"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute top-6 left-6 flex items-center gap-2 bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse">
+<span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                    Live Now
+                </div>
+<div class="absolute inset-x-6 bottom-6 glass rounded-[2rem] p-6 text-white space-y-4">
+<div class="overflow-hidden h-6">
+<p class="scrolling-text font-semibold text-lg">
+                            Elevate Your Spirit • Maverick City Music - Jireh • Now Playing 
+                        </p>
+</div>
+<div class="flex items-center justify-between">
+<button class="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white">
+<span class="material-icons-round">shuffle</span>
+</button>
+<div class="flex items-center gap-6">
+<button class="material-icons-round text-3xl">skip_previous</button>
+<button class="w-16 h-16 bg-white text-primary rounded-full flex items-center justify-center shadow-lg transform active:scale-95 transition-transform">
+<span class="material-icons-round text-4xl ml-1">play_arrow</span>
+</button>
+<button class="material-icons-round text-3xl">skip_next</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-white/60 hover:text-white">
+<span class="material-icons-round">share</span>
+</button>
+</div>
+<div class="relative h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary w-2/3"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center justify-between px-2">
+<h2 class="font-bold text-xl">How's your spirit?</h2>
+<span class="text-primary text-xs font-bold uppercase tracking-widest">Filter</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 bg-sky-50 dark:bg-slate-800 rounded-3xl border-2 border-primary/40 text-primary transition-all hover:bg-primary hover:text-white">
+<span class="material-icons-round text-2xl">celebration</span>
+<span class="text-xs font-bold">Joyful</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-3xl text-slate-500 dark:text-slate-400 transition-all hover:border-2 hover:border-primary/40">
+<span class="material-icons-round text-2xl">search</span>
+<span class="text-xs font-bold">Seeking</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-3xl text-slate-500 dark:text-slate-400 transition-all hover:border-2 hover:border-primary/40">
+<span class="material-icons-round text-2xl">self_improvement</span>
+<span class="text-xs font-bold">Peaceful</span>
+</button>
+</div>
+</section>
+<section class="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-[2rem] border border-slate-100 dark:border-slate-800 space-y-5">
+<div class="space-y-1">
+<h3 class="font-bold text-lg">Praise &amp; Petitions</h3>
+<p class="text-xs text-slate-500">Send your prayer requests or shoutouts to our DJs.</p>
+</div>
+<form class="space-y-4">
+<div class="grid grid-cols-2 gap-3">
+<input class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white" placeholder="Your Name" type="text"/>
+<select class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white">
+<option>Category</option>
+<option>Prayer</option>
+<option>Praise</option>
+<option>Shoutout</option>
+</select>
+</div>
+<textarea class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white" placeholder="Write your blessing here..." rows="3"></textarea>
+<button class="w-full bg-white dark:bg-slate-800 border-2 border-accent text-slate-900 dark:text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-accent/10 active:scale-[0.98] transition-all" type="submit">
+<span class="material-icons-round text-accent">favorite</span>
+                    Send Blessing
+                </button>
+</form>
+</section>
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 px-8 py-4 pb-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">radio</span>
+<span class="text-[10px] font-bold">Listen</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-icons-round">event_note</span>
+<span class="text-[10px] font-bold">Plan</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-icons-round">favorite_border</span>
+<span class="text-[10px] font-bold">Pray</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="material-icons-round">account_circle</span>
+<span class="text-[10px] font-bold">Me</span>
+</button>
+</nav>
+</div>
+<button class="fixed bottom-24 right-6 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center z-40 transition-transform active:scale-90" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-round text-slate-600 dark:text-slate-300">dark_mode</span>
+</button>
+<script>
+        // Smooth reveal of elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach((s, i) => {
+                s.style.opacity = '0';
+                s.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    s.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                    s.style.opacity = '1';
+                    s.style.transform = 'translateY(0)';
+                }, 100 * (i + 1));
+            });
+        });
+    </script>
+</body></html>
