@@ -175,9 +175,11 @@
                 <div
                     class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 dark:border-white/10 aspect-square group bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
                     <!-- Restoring original angel image as hero visual -->
-                    <img id="main-brand-img" src="brand_logo.jpg" alt="Nexgen Gospel - God Promises Never Fails"
+                    <img id="main-brand-img"
+                        src="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/WhatsApp%20Image%202026-01-23%20at%2012.42.52%20PM.jpeg"
+                        alt="Nexgen Gospel - God Promises Never Fails"
                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-10"
-                        onerror="this.src='https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.52_PM_PDhKuat.jpeg';">
+                        onerror="this.src='brand_logo.jpg'; this.onerror=function(){this.src='https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.52_PM_PDhKuat.jpeg'};">
                     <div
                         class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-center z-20">
                         <p class="font-bold text-sm tracking-widest uppercase mb-1">Nexgen Gospel Radio</p>
@@ -266,27 +268,27 @@
                     <p class="text-sm text-slate-500 dark:text-slate-400">Join our community in prayer and praise.</p>
                 </div>
 
-                <form class="space-y-4 relative">
-                    <input
+                <form action="https://formspree.io/f/xpqjlbda" method="POST" class="space-y-4 relative">
+                    <input name="name"
                         class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm"
-                        placeholder="Your Name" type="text" />
+                        placeholder="Your Name" type="text" required />
                     <div class="grid grid-cols-2 gap-4">
-                        <select
+                        <select name="type"
                             class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm appearance-none cursor-pointer">
-                            <option>Prayer</option>
-                            <option>Praise</option>
-                            <option>Healing</option>
+                            <option value="Prayer">Prayer</option>
+                            <option value="Praise">Praise</option>
+                            <option value="Healing">Healing</option>
                         </select>
                         <div
                             class="glass bg-white/50 dark:bg-slate-800/50 rounded-2xl px-4 py-4 flex items-center gap-2">
-                            <input type="checkbox" id="private" class="rounded text-primary focus:ring-primary"><label
-                                for="private"
+                            <input type="checkbox" id="private" name="is_private" value="yes"
+                                class="rounded text-primary focus:ring-primary"><label for="private"
                                 class="text-[10px] uppercase font-bold text-slate-400 cursor-pointer">Private</label>
                         </div>
                     </div>
-                    <textarea
+                    <textarea name="message"
                         class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm min-h-[100px]"
-                        placeholder="How can we stand with you today?"></textarea>
+                        placeholder="How can we stand with you today?" required></textarea>
                     <button
                         class="w-full bg-primary text-white py-5 rounded-2xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all"
                         type="submit">Submit Request</button>
@@ -329,5 +331,5 @@
         src="https://usa20.fastcast4u.com:5030/media/static/js/request_track_widget/request_widget.js"></script>
 </body>
 
-</html>< ! - -   T i m e s t a m p :   2 0 2 6 - 0 2 - 1 8   2 1 : 4 4 : 3 3   - - >  
- 
+</html>
+<!-- Timestamp: 2026-02-18 21:44:33 -->
