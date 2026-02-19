@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html class="light dark" lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>NexGen Gospel Radio | Elevate Your Spirit</title>
 
-    <!-- Tailwind CSS -->
+    <!-- CSS & Fonts -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round&display=swap" rel="stylesheet" />
-    <link rel="preload" as="image" href="brand_logo_main.jpeg" fetchpriority="high" />
-    <link rel="preconnect" href="https://usa20.fastcast4u.com:5030" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
 
-    <!-- Fastcast4u Widget Dependencies -->
-    <!-- Fastcast4u Widget Dependencies -->
+    <!-- Widget CSS -->
     <link href="https://usa20.fastcast4u.com:5030/media/static/css/widget-status.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="https://usa20.fastcast4u.com:5030/media/static/css/current_track_widget/status_widget.css" />
@@ -34,14 +27,19 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#3885d6",
-                        secondary: "#d8db14",
+                        primary: "#4892c6",
                         accent: "#FBBF24",
-                        "background-light": "#f8fafc",
-                        "background-dark": "#0f172a"
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#141a1e"
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: "Plus Jakarta Sans"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
                     }
                 }
             }
@@ -49,286 +47,319 @@
     </script>
 
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background-color 0.3s ease;
-        }
-
         .glass {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .dark .glass {
-            background: rgba(30, 41, 59, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 23, 42, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(56, 133, 214, 0.15), transparent 40%),
-                radial-gradient(circle at bottom left, rgba(216, 219, 20, 0.1), transparent 40%);
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: scroll 15s linear infinite;
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
-        ::-webkit-scrollbar-track {
-            background: transparent;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-
-        .dark ::-webkit-scrollbar-thumb {
-            background: #334155;
-        }
-
-        /* Widget Overrides */
+        /* Widget Overrides for Dark Mode Compatibility */
         [is="player"] {
             width: 100% !important;
             margin: 0 auto !important;
         }
 
-        /* Fix for Player Background */
-        .player-card {
-            background-color: #ffffff;
-            border-radius: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        /* Ensure Inputs look good */
+        input,
+        select,
+        textarea {
+            transition: all 0.2s;
         }
 
-        .dark .player-card {
-            background-color: #1e293b;
+        /* Hide scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
 
-        /* Song Request Modal Fix */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Song Request Widget Customization */
         .sc-track-request-widget input[type="text"],
         .sc-track-request-widget textarea {
             width: 100% !important;
-            min-width: 100% !important;
-            display: block !important;
-            padding: 10px 14px !important;
+            padding: 12px !important;
             margin: 8px 0 !important;
-            border: 1px solid #cbd5e1 !important;
             border-radius: 12px !important;
-            background: #ffffff !important;
-            color: #334155 !important;
-            font-size: 14px !important;
-            line-height: 1.5 !important;
-            height: auto !important;
-            box-sizing: border-box !important;
-        }
-
-        .sc-track-request-widget div[style*="position: fixed"] {
-            width: 90% !important;
-            max-width: 420px !important;
-            min-width: 300px !important;
-            left: 50% !important;
-            top: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            padding: 24px !important;
-            border-radius: 24px !important;
-            background: #ffffff !important;
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4) !important;
-            z-index: 9999 !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: stretch !important;
-            text-align: left !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            background: rgba(255, 255, 255, 0.9) !important;
         }
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen hero-gradient">
-
-    <div class="max-w-md mx-auto px-6 py-8 space-y-8 relative pb-40">
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen">
+    <div class="max-w-md mx-auto px-5 py-6 space-y-8 relative pb-32">
 
         <!-- Header -->
         <header class="flex items-center justify-between">
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
                 <div
-                    class="w-12 h-12 glass rounded-xl flex items-center justify-center shadow-md p-1 overflow-hidden relative">
-                    <!-- Logo Update with new URL -->
-                    <img id="header-logo"
-                        src="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
-                        alt="Logo" class="w-full h-full object-contain rounded-lg z-10 relative" width="48" height="48"
-                        onerror="this.src='brand_logo.jpg'; this.onerror=function(){this.src='https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.51_PM_1.jpeg'};">
+                    class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20 overflow-hidden">
+                    <img src="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
+                        alt="Nexgen Logo" class="w-full h-full object-cover"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="material-icons-round text-white text-3xl" style="display:none">auto_awesome</span>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-xl tracking-tight leading-tight">NexGen</h1>
-                    <p class="text-[10px] text-primary font-bold uppercase tracking-[0.2em]">Gospel JA</p>
+                    <h1 class="font-bold text-lg leading-tight">NexGen</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Gospel Radio</p>
                 </div>
             </div>
-            <button
-                class="w-10 h-10 glass rounded-xl flex items-center justify-center shadow transition-transform active:scale-90"
-                onclick="document.documentElement.classList.toggle('dark')" aria-label="Toggle Dark Mode">
-                <span class="material-icons-round text-slate-600 dark:text-slate-300">dark_mode</span>
-            </button>
+            <div
+                class="flex items-center bg-sky-50 dark:bg-slate-800/50 px-3 py-2 rounded-2xl border border-sky-100 dark:border-slate-700">
+                <span class="material-icons-round text-primary text-lg mr-2">wb_sunny</span>
+                <div class="text-right">
+                    <p class="text-xs font-bold leading-none">28°C</p>
+                    <p class="text-[10px] text-slate-400">Montego Bay</p>
+                </div>
+            </div>
         </header>
 
-        <!-- Main Content Area -->
-        <main class="space-y-6">
+        <!-- Nav -->
+        <nav class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <a class="px-5 py-2.5 bg-primary text-white rounded-full font-semibold text-sm shadow-md shadow-primary/30"
+                href="#">Home</a>
+            <a class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full font-medium text-sm"
+                href="#">Schedule</a>
+            <a class="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full font-medium text-sm"
+                href="#">Testimonies</a>
+        </nav>
 
-            <!-- Brand Image (Angels & Cross) -->
-            <section class="animate-fade-in">
+        <!-- Hero / Player Section -->
+        <section class="relative group">
+            <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full -z-10 transform scale-90"></div>
+            <div class="relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-slate-900 border border-slate-800">
+
+                <!-- Background Image -->
+                <img alt="Worship Background"
+                    class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCua8lSOsNXgND2N_7OVdFoYWFfgG1PEozYQh3p-r2bdYGi33l--u_mCUVnqXoiNSRrKsArH-oKSaduuBhEmUuyECnOhdqZezsFMd8J6fBR0xijRXw8ZjcdJSS5S_nmVFt5yGcAK4tFcyfKqX_EmEj9x_PcGnPoQX5hX94QnvIPlMJf2mkJzue2_Cc3YTgMx6EXagC9Ce54Fv2QAoghmnOmoQbSTINIfkroujGK49Rq1YOaKhITdRtdVM-8oEzhbc3Btpio8Rf014" />
+
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+
+                <!-- Live Tag -->
                 <div
-                    class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 dark:border-white/10 aspect-square group bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-                    <!-- Restoring original angel image as hero visual -->
-                    <img id="main-brand-img" src="brand_logo_main.jpeg" alt="Nexgen Gospel - God Promises Never Fails"
-                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 z-10"
-                        fetchpriority="high" width="800" height="800"
-                        onerror="this.src='brand_logo.jpg'; this.onerror=function(){this.src='https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.52_PM_PDhKuat.jpeg'};">
-                    <div
-                        class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white text-center z-20">
-                        <p class="font-bold text-sm tracking-widest uppercase mb-1">Nexgen Gospel Radio</p>
-                        <p class="text-[10px] font-medium opacity-90 tracking-wide">God Promises Never Fails</p>
-                    </div>
+                    class="absolute top-6 left-6 flex items-center gap-2 bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse z-20">
+                    <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                    Live Now
                 </div>
-            </section>
 
-            <!-- Player Widget (Below Image) -->
-            <section class="animate-fade-in group">
-                <div
-                    class="player-card p-4 relative overflow-hidden transition-all duration-300 group-hover:shadow-2xl">
-                    <div style="width: 100% !important; min-height: 420px;" id="sc-player">
+                <!-- Player Container -->
+                <div class="relative z-10 p-4 pt-20">
+                    <div style="width: 100% !important; min-height: 420px;" class="player-wrapper">
                         <div is="player" lang="en" api-url="https://usa20.fastcast4u.com:5030/api/v2" server-id="1"
                             station-name="Nexgen Gospel JA" station-url="https://www.nexgengospelradio.com/"
-                            imagecontainer="right" imagecontainer-bg="#ffffff" imagecontainer-bg-opacity="1"
+                            imagecontainer="right" imagecontainer-bg="transparent" imagecontainer-bg-opacity="0"
                             controlscontainer="left" controlscontainer-bg="transparent" controlscontainer-bg-opacity="0"
                             historycontainer="bottom" historycontainer-bg="transparent" historycontainer-bg-opacity="0"
-                            :show-history="true" history-limit="5" sharecontainer="bottom" sharecontainer-bg="#1488c2"
+                            :show-history="true" history-limit="5" sharecontainer="bottom" sharecontainer-bg="#4892c6"
                             sharecontainer-bg-opacity="1" :show-share="true"
                             share-url="https://www.nexgengospelradio.com/" :share="['facebook','telegram','twitter']"
                             :show-dj="true"
                             default-dj-img="https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.51_PM_1.jpeg"
                             :show-image="true"
                             default-cover-image="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
-                            play-button-color="#ffffff" play-button-bg="#3885d6" visualizer-outline-color="#3885d6"
-                            visualizer-bar-width="2" :channels-displayed="[1]" channels-switch-bg="#3885d6"
+                            play-button-color="#ffffff" play-button-bg="#4892c6" visualizer-outline-color="#4892c6"
+                            visualizer-bar-width="2" :channels-displayed="[1]" channels-switch-bg="#4892c6"
                             channels-switch-color="#ffffff" channels-switch-bg-active="#fafafa"
-                            channels-switch-color-active="#3885d6" :show-vote="true" vote-buttons-color="#3885d6"
-                            vote-buttons-opacity="1" vote-results-font-color="#3885d6" vote-results-font-size="16"
-                            :progress-show="true" progress-bar-color="#3885d6" progress-bar-bg-color="#e2e8f0"
+                            channels-switch-color-active="#4892c6" :show-vote="true" vote-buttons-color="#4892c6"
+                            vote-buttons-opacity="1" vote-results-font-color="#4892c6" vote-results-font-size="16"
+                            :progress-show="true" progress-bar-color="#4892c6" progress-bar-bg-color="#e2e8f0"
                             progress-bar-bg-opacity="1" progress-bar-bg-height="25" progress-bar-opacity="1"
                             progress-font-color="#ffffff" progress-font-size="12" progress-bar-bg-radius="10"
-                            progress-bar-bg-border="#3885d6" player-width="100%">
+                            progress-bar-bg-border="#4892c6" player-width="100%">
                         </div>
                     </div>
                 </div>
 
-                <!-- Direct Stream Link -->
-                <div class="mt-4 px-4 text-center">
-                    <a href="https://usa20.fastcast4u.com:5040/;?type=http&nocache=1771376406" target="_blank"
-                        class="text-[10px] font-bold text-slate-400 hover:text-primary uppercase tracking-[0.2em] inline-flex items-center gap-2 transition-all hover:gap-3">
-                        <span class="material-icons-round text-sm">play_circle</span>
-                        Direct Mobile Stream
-                    </a>
+                <!-- Scrolling Text -->
+                <div class="absolute inset-x-0 bottom-0 p-4 bg-slate-900/80 backdrop-blur-sm border-t border-white/5">
+                    <p class="scrolling-text font-medium text-sm text-slate-300">
+                        Elevate Your Spirit • NexGen Gospel Radio • God Promises Never Fail • Tune In Now
+                    </p>
                 </div>
-            </section>
+            </div>
 
-            <!-- Song Request Section -->
-            <section id="song-requests" class="animate-fade-in space-y-4">
-                <div class="flex items-center justify-between px-2">
-                    <h2 class="font-bold text-xl">Song Request</h2>
-                </div>
+            <!-- Direct Stream Link -->
+            <div class="mt-4 px-4 text-center">
+                <a href="https://usa20.fastcast4u.com:5040/;?type=http&nocache=1771376406" target="_blank"
+                    class="text-[10px] font-bold text-slate-400 hover:text-primary uppercase tracking-[0.2em] inline-flex items-center gap-2 transition-all hover:gap-3">
+                    <span class="material-icons-round text-sm">play_circle</span>
+                    Direct Mobile Stream
+                </a>
+            </div>
+        </section>
 
-                <div
-                    class="glass rounded-[2rem] p-6 shadow-xl border border-white/50 overflow-hidden bg-white/80 dark:bg-slate-900/80">
-                    <div style="width: 100%;">
-                        <div class="sc-track-request-widget">
-                            <div is="track-request-widget" lang="en" api-base="https://usa20.fastcast4u.com:5030/api/v2"
-                                server-id="1" ip-timeout="1800000" track-timeout="3600000" bgcolor="#ffffff"
-                                bgopacity="1" tracks_num="20" track_width="100%"
-                                track_image_default="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
-                                meta_font_size="16" meta_font_style="italic" meta_font_color="#1a1a1a" meta_opacity="1"
-                                button_color="#3885d6" button_color_active="#d8db14" button_font_color="#ffffff"
-                                button_font_size="16" ordering="1" allow_person_and_message="true"
-                                modal_background_color="#fcfcfc" modal_font_color="#292828"
-                                modal_background_opacity="1">
-                            </div>
-                        </div>
+        <!-- Interactive Section -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between px-2">
+                <h2 class="font-bold text-xl">How's your spirit?</h2>
+                <span class="text-primary text-xs font-bold uppercase tracking-widest">Filter</span>
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+                <button
+                    class="flex flex-col items-center gap-2 p-4 bg-sky-50 dark:bg-slate-800 rounded-3xl border-2 border-primary/40 text-primary transition-all hover:bg-primary hover:text-white">
+                    <span class="material-icons-round text-2xl">celebration</span>
+                    <span class="text-xs font-bold">Joyful</span>
+                </button>
+                <button
+                    class="flex flex-col items-center gap-2 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-3xl text-slate-500 dark:text-slate-400 transition-all hover:border-2 hover:border-primary/40">
+                    <span class="material-icons-round text-2xl">search</span>
+                    <span class="text-xs font-bold">Seeking</span>
+                </button>
+                <button
+                    class="flex flex-col items-center gap-2 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-3xl text-slate-500 dark:text-slate-400 transition-all hover:border-2 hover:border-primary/40">
+                    <span class="material-icons-round text-2xl">self_improvement</span>
+                    <span class="text-xs font-bold">Peaceful</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Song Requests (New Section) -->
+        <section id="song-requests"
+            class="bg-white dark:bg-slate-900/50 p-6 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-xl space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="font-bold text-lg">Request a Song</h3>
+                <span class="material-icons-round text-primary bg-primary/10 p-2 rounded-full">queue_music</span>
+            </div>
+            <div style="width: 100%;">
+                <div class="sc-track-request-widget">
+                    <div is="track-request-widget" lang="en" api-base="https://usa20.fastcast4u.com:5030/api/v2"
+                        server-id="1" ip-timeout="1800000" track-timeout="3600000" bgcolor="transparent" bgopacity="1"
+                        tracks_num="20" track_width="100%"
+                        track_image_default="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
+                        meta_font_size="14" meta_font_style="normal" meta_font_color="#64748b" meta_opacity="1"
+                        button_color="#4892c6" button_color_active="#FBBF24" button_font_color="#ffffff"
+                        button_font_size="14" ordering="1" allow_person_and_message="true"
+                        modal_background_color="#fcfcfc" modal_font_color="#292828" modal_background_opacity="1">
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Prayer Form -->
-            <section id="prayer-form"
-                class="glass p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden border border-white/50 bg-white/60 dark:bg-slate-900/40">
-                <div
-                    class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full translate-x-10 -translate-y-10">
-                </div>
-                <div class="text-center space-y-2 relative mb-6">
-                    <div
-                        class="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl mb-2 rotate-12 transition-transform hover:rotate-0">
-                        <span class="material-icons-round text-primary text-3xl">volunteer_activism</span>
-                    </div>
-                    <h3 class="font-bold text-2xl">Prayer Wall</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">Join our community in prayer and praise.</p>
-                </div>
+        <!-- Prayer Form -->
+        <section id="prayer-form"
+            class="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-[2rem] border border-slate-100 dark:border-slate-800 space-y-5 relative overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full translate-x-10 -translate-y-10">
+            </div>
+            <div class="space-y-1 relative">
+                <h3 class="font-bold text-lg">Praise &amp; Petitions</h3>
+                <p class="text-xs text-slate-500">Send your prayer requests or shoutouts to our DJs.</p>
+            </div>
 
-                <form action="https://formspree.io/f/xpqjlbda" method="POST" class="space-y-4 relative">
-                    <input name="name" aria-label="Your Name"
-                        class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm"
+            <form action="https://formspree.io/f/xpqjlbda" method="POST" class="space-y-4 relative">
+                <div class="grid grid-cols-2 gap-3">
+                    <input name="name"
+                        class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white placeholder-slate-400"
                         placeholder="Your Name" type="text" required />
-                    <div class="grid grid-cols-2 gap-4">
-                        <select name="type" aria-label="Prayer Type"
-                            class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm appearance-none cursor-pointer">
-                            <option value="Prayer">Prayer</option>
-                            <option value="Praise">Praise</option>
-                            <option value="Healing">Healing</option>
-                        </select>
-                        <div
-                            class="glass bg-white/50 dark:bg-slate-800/50 rounded-2xl px-4 py-4 flex items-center gap-2">
-                            <input type="checkbox" id="private" name="is_private" value="yes"
-                                class="rounded text-primary focus:ring-primary"><label for="private"
-                                class="text-[10px] uppercase font-bold text-slate-400 cursor-pointer">Private</label>
-                        </div>
-                    </div>
-                    <textarea name="message" aria-label="Your Message"
-                        class="w-full glass bg-white/50 dark:bg-slate-800/50 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-primary shadow-sm min-h-[100px]"
-                        placeholder="How can we stand with you today?" required></textarea>
-                    <button
-                        class="w-full bg-primary text-white py-5 rounded-2xl font-bold shadow-lg shadow-primary/20 active:scale-95 transition-all"
-                        type="submit">Submit Request</button>
-                </form>
-            </section>
+                    <select name="type"
+                        class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white appearance-none cursor-pointer text-slate-600 dark:text-slate-300">
+                        <option value="Prayer">Prayer</option>
+                        <option value="Praise">Praise</option>
+                        <option value="Shoutout">Shoutout</option>
+                        <option value="Healing">Healing</option>
+                    </select>
+                </div>
 
-        </main>
+                <div class="flex items-center gap-2 px-2">
+                    <input type="checkbox" id="private" name="is_private" value="yes"
+                        class="rounded text-primary focus:ring-primary border-none bg-white dark:bg-slate-800 shadow-sm">
+                    <label for="private" class="text-xs font-bold text-slate-500 cursor-pointer">Keep Private</label>
+                </div>
 
-        <!-- Bottom Navigation -->
+                <textarea name="message"
+                    class="w-full bg-white dark:bg-slate-800 border-none rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary shadow-sm dark:text-white placeholder-slate-400"
+                    placeholder="Write your blessing here..." rows="3" required></textarea>
+
+                <button
+                    class="w-full bg-white dark:bg-slate-800 border-2 border-accent text-slate-900 dark:text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-accent/10 active:scale-[0.98] transition-all"
+                    type="submit">
+                    <span class="material-icons-round text-accent">favorite</span>
+                    Send Blessing
+                </button>
+            </form>
+        </section>
+
+        <!-- Footer Nav -->
         <nav
-            class="fixed bottom-0 left-0 right-0 glass backdrop-blur-2xl border-t border-white/20 px-10 py-5 pb-10 flex justify-between items-center z-50">
+            class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 px-8 py-4 pb-8 flex justify-between items-center z-50">
             <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-                class="text-primary flex flex-col items-center gap-1" aria-label="Listen">
+                class="flex flex-col items-center gap-1 text-primary">
                 <span class="material-icons-round">radio</span>
-                <span class="text-[9px] font-bold uppercase tracking-widest">Listen</span>
+                <span class="text-[10px] font-bold">Listen</span>
             </button>
             <button onclick="document.getElementById('song-requests').scrollIntoView({behavior:'smooth'})"
-                class="text-slate-400 hover:text-primary transition-colors flex flex-col items-center gap-1"
-                aria-label="Song Request">
+                class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">
                 <span class="material-icons-round">queue_music</span>
-                <span class="text-[9px] font-bold uppercase tracking-widest">Song Request</span>
+                <span class="text-[10px] font-bold">Request</span>
             </button>
             <button onclick="document.getElementById('prayer-form').scrollIntoView({behavior:'smooth'})"
-                class="text-slate-400 hover:text-primary transition-colors flex flex-col items-center gap-1"
-                aria-label="Prayer Wall">
+                class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">
                 <span class="material-icons-round">volunteer_activism</span>
-                <span class="text-[9px] font-bold uppercase tracking-widest">Pray</span>
+                <span class="text-[10px] font-bold">Pray</span>
             </button>
-            <button class="text-slate-400 hover:text-primary transition-colors flex flex-col items-center gap-1"
-                aria-label="User Profile">
+            <button
+                class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors">
                 <span class="material-icons-round">account_circle</span>
-                <span class="text-[9px] font-bold uppercase tracking-widest">Me</span>
+                <span class="text-[10px] font-bold">Me</span>
             </button>
         </nav>
     </div>
 
+    <!-- Dark Mode Toggle -->
+    <button
+        class="fixed bottom-24 right-6 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center z-40 transition-transform active:scale-90"
+        onclick="document.documentElement.classList.toggle('dark')">
+        <span class="material-icons-round text-slate-600 dark:text-slate-300">dark_mode</span>
+    </button>
+
     <!-- Scripts -->
+    <script>
+        // Smooth reveal of elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach((s, i) => {
+                s.style.opacity = '0';
+                s.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    s.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                    s.style.opacity = '1';
+                    s.style.transform = 'translateY(0)';
+                }, 100 * (i + 1));
+            });
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript"
         src="https://usa20.fastcast4u.com:5030/media/static/js/sc_player/sc_player.js"></script>
@@ -339,4 +370,3 @@
 </body>
 
 </html>
-<!-- Timestamp: 2026-02-19 14:48:00 -->
