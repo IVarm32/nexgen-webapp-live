@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0EA5E9;
+  --color-secondary: #FACC15;
+  --color-accent: #FBBF24;
+  --color-background-light: #f8fafc;
+  --color-background-dark: #0f172a;
+  
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+:root {
+  font-family: var(--font-sans);
+  background-color: var(--color-background-light);
+  color: #1e293b;
+}
+
+.dark {
+  background-color: var(--color-background-dark);
+  color: #f8fafc;
+}
