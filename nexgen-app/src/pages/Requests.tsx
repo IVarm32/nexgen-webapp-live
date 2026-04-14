@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useEffect } from 'react';
 
 export default function Requests() {
@@ -15,7 +14,7 @@ export default function Requests() {
 
     return (
         <div className="space-y-6 pb-24">
-            <h2 className="font-bold text-2xl px-2">Song Requests</h2>
+            <h1 className="font-bold text-2xl px-2">Song Requests - NexGen Gospel Radio Jamaica</h1>
             <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-[2rem] p-6 shadow-xl border border-white/50 dark:border-white/10 overflow-hidden">
                 <div style={{ width: '100%' }}>
                     <div className="sc-track-request-widget">

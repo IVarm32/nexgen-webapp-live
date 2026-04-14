@@ -5,7 +5,7 @@ export default function Prayer() {
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl mb-2 rotate-12 transition-transform hover:rotate-0">
                     <span className="material-icons-round text-primary text-3xl">volunteer_activism</span>
                 </div>
-                <h3 className="font-bold text-2xl">Prayer Wall</h3>
+                <h1 className="font-bold text-2xl">Prayer Wall - NexGen Gospel Radio Jamaica</h1>
                 <p className="text-sm text-slate-500 dark:text-slate-400">Join our community in prayer and praise.</p>
             </div>
 
