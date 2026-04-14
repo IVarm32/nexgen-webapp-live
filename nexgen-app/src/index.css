@@ -1,22 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0EA5E9;
-  --color-secondary: #FACC15;
-  --color-accent: #FBBF24;
+  --color-primary: #3885d6;
+  --color-secondary: #d8db14;
   --color-background-light: #f8fafc;
   --color-background-dark: #0f172a;
-  
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
-:root {
-  font-family: var(--font-sans);
-  background-color: var(--color-background-light);
-  color: #1e293b;
+@layer base {
+  .hero-gradient {
+    background: radial-gradient(circle at top right, rgba(56, 133, 214, 0.08), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(216, 219, 20, 0.05), transparent 40%);
+  }
+
+  .glass {
+    @apply backdrop-blur-xl border border-white/20 dark:border-white/10;
+  }
 }
 
-.dark {
-  background-color: var(--color-background-dark);
-  color: #f8fafc;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
 }

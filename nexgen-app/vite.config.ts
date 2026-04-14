@@ -1,14 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-// @ts-ignore
+// @ts-expect-error - Library missing types
 import { VitePWA } from 'vite-plugin-pwa'
+// @ts-expect-error - Library missing types
+import sitemap from 'vite-plugin-sitemap'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    sitemap({
+      hostname: 'https://live.nexgengospelradio.com/',
+      dynamicRoutes: ['/requests', '/prayer', '/profile'],
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],

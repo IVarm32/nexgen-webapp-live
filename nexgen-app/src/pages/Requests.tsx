@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useEffect } from 'react';
 
 export default function Requests() {
@@ -15,11 +14,11 @@ export default function Requests() {
 
     return (
         <div className="space-y-6 pb-24">
-            <h2 className="font-bold text-2xl px-2">Song Requests</h2>
+            <h1 className="font-bold text-2xl px-2">Song Requests - NexGen Gospel Radio Jamaica</h1>
             <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-[2rem] p-6 shadow-xl border border-white/50 dark:border-white/10 overflow-hidden">
                 <div style={{ width: '100%' }}>
                     <div className="sc-track-request-widget">
-                        {/* @ts-ignore - Web Component/Widget */}
+                        {/* @ts-expect-error - Web Component/Widget */}
                         <div is="track-request-widget" lang="en" api-base="https://usa20.fastcast4u.com:5030/api/v2"
                             server-id="1" ip-timeout="1800000" track-timeout="3600000" bgcolor="#ffffff"
                             bgopacity="1" tracks_num="20" track_width="100%"
