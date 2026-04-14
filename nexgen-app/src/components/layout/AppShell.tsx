@@ -44,7 +44,7 @@ export default function AppShell() {
                         </div>
                         <div>
                             <h2 className="sr-only">NexGen Gospel Radio Jamaica</h2>
-                            <h1 className="font-extrabold text-xl tracking-tight leading-tight">NexGen</h1>
+                            <h1 className="font-extrabold text-xl tracking-tight leading-tight">Nexgen Gospel Radio Jamaica</h1>
                             <p className="text-[10px] text-primary font-bold uppercase tracking-[0.2em]">Gospel JA</p>
                         </div>
                     </div>
