@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-// @ts-expect-error - Library missing types
+// @ts-ignore - Library missing types
 import { VitePWA } from 'vite-plugin-pwa'
-// @ts-expect-error - Library missing types
+// @ts-ignore - Library missing types
 import sitemap from 'vite-plugin-sitemap'
 
 // https://vite.dev/config/

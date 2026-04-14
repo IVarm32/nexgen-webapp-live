@@ -1,0 +1,9 @@
+{
+  "name": "nexgen-root",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix nexgen-app install && npm --prefix nexgen-app run build",
+    "dev": "npm --prefix nexgen-app run dev",
+    "lint": "npm --prefix nexgen-app run lint"
+  }
+}

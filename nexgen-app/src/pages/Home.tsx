@@ -38,17 +38,17 @@ export default function Home() {
             <section className="animate-fade-in group">
                 <div className="bg-white dark:bg-slate-800 rounded-[2rem] p-4 shadow-xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl">
                     <div style={{ width: '100%', minHeight: '420px' }} id="sc-player">
-                        {/* @ts-expect-error - Web Component - Web Component/Widget */}
+                        {/* @ts-ignore - Web Component - Web Component/Widget */}
                         <div is="player" lang="en" api-url="https://usa20.fastcast4u.com:5030/api/v2" server-id="1"
                             station-name="Nexgen Gospel JA" station-url="https://live.nexgengospelradio.com/"
                             imagecontainer="right" imagecontainer-bg="#ffffff" imagecontainer-bg-opacity="1"
                             controlscontainer="left" controlscontainer-bg="transparent" controlscontainer-bg-opacity="0"
                             historycontainer="bottom" historycontainer-bg="transparent" historycontainer-bg-opacity="0"
-                            // @ts-expect-error - Web Component
+                            // @ts-ignore - Web Component
                             show-history="true" history-limit="5" sharecontainer="bottom" sharecontainer-bg="#1488c2"
                             sharecontainer-bg-opacity="1" show-share="true"
                             share-url="https://live.nexgengospelradio.com/"
-                            // @ts-expect-error - Web Component
+                            // @ts-ignore - Web Component
                             share="['facebook','telegram','twitter']"
                             show-dj="true"
                             default-dj-img="https://usa20.fastcast4u.com:5030/media/widgets/WhatsApp_Image_2026-01-23_at_12.42.51_PM_1.jpeg"
@@ -56,7 +56,7 @@ export default function Home() {
                             default-cover-image="https://pub-9492ccf38a894deea61da5ac42572f5f.r2.dev/Nexgen%20Gospel%20Radio%20Logo%20Update.png"
                             play-button-color="#ffffff" play-button-bg="#3885d6" visualizer-outline-color="#3885d6"
                             visualizer-bar-width="2"
-                            // @ts-expect-error - Web Component
+                            // @ts-ignore - Web Component
                             channels-displayed="[1]" channels-switch-bg="#3885d6"
                             channels-switch-color="#ffffff" channels-switch-bg-active="#fafafa"
                             channels-switch-color-active="#3885d6" show-vote="true" vote-buttons-color="#3885d6"
