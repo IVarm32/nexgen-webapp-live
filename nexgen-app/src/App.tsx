@@ -5,7 +5,7 @@ import Requests from './pages/Requests';
 import Prayer from './pages/Prayer';
 
 // Placeholder for Profile
-const Profile = () => <div className="p-4 text-center">Profile Coming Soon</div>;
+import Upload from "./pages/Upload";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="requests" element={<Requests />} />
           <Route path="prayer" element={<Prayer />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="upload" element={<Upload />} />
         </Route>
       </Routes>
     </BrowserRouter>

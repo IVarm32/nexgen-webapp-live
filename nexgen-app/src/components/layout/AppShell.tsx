@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Radio, ListMusic, HeartHandshake, User, Moon, Sun } from 'lucide-react';
+import { Radio, ListMusic, HeartHandshake, Upload as UploadIcon, Moon, Sun } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function AppShell() {
@@ -23,7 +23,7 @@ export default function AppShell() {
         { name: 'Listen', path: '/', icon: Radio },
         { name: 'Request', path: '/requests', icon: ListMusic },
         { name: 'Pray', path: '/prayer', icon: HeartHandshake },
-        { name: 'Me', path: '/profile', icon: User },
+        { name: 'Upload', path: '/upload', icon: UploadIcon },
     ];
 
     return (
